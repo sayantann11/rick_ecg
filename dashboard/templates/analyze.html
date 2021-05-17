@@ -1,0 +1,118 @@
+<html>
+<body>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ECG Analyzer</title>
+</head>
+<body style="background-color:black">
+
+<div  style="background-color:black;">
+    <br>
+    <h1 align="center" style="color:white;font-family:courier;font-size:300%;">ECG Analyzer</h1>
+
+</div>
+
+<br>
+<br>
+<br>
+</body>
+
+<head>
+<style>
+.city {
+  background-color: yellow;
+  color: black;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 20px;
+}
+</style>
+
+</head>
+    <div class="city">
+    <table width = "100%" border = "5">
+         <tr valign = "top">
+
+            <td bgcolor = "yellow" width = "50" height = "400">
+               <div>
+                   <h1 align="center">ECG Graph</h1>
+               </div>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable({{list|safe}});
+
+        var options = {
+          title: 'ECG Graph',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="curve_chart" style="width: 1000px; height: 400px"></div>
+  </body>
+            </td>
+             <td bgcolor = "yellow" width = "300">
+
+                <div >
+                    <br>
+                    <br>
+                    <br>
+                   <br> <h3 style="text-align:left;display:inline;">Mean = </h3>
+                    <h3  id="mean"  style="float:right;display:inline;" > {{mean}}</h3><br>
+                    <br>
+                </div>
+
+                <div>
+                    <h3 style="text-align:left;display:inline;">Median = </h3>
+                    <h3  id="median"  style="float:right;display:inline;"> {{median}}</h3 ><br>
+                    <br>
+                </div>
+                <div>
+                    <h3 style="text-align:left;display:inline;">Mode = </h3>
+                    <h3  id="mode"  style="float:right;display:inline;"> {{mode}}</h3><br>
+                    <br>
+                </div>
+                <div>
+                   <h3 style="text-align:left;display:inline;">STD DEV = </h3>
+                    <h3 id="stddev"  style="float:right;display:inline;"> {{stddev}}</h3><br>
+                    <br>
+                </div>
+                <div>
+                    <h3 style="text-align:left;display:inline;">[Q1 , Q3] = </h3>
+                    <h3  id="quartiles"  style="float:right;display:inline;"> [{{Qone}},{{Qthree}}]</h3><br>
+                    <br>
+                </div>
+                <div>
+                   <h3 style="text-align:left;display:inline;">IQR = </h3>
+                    <h3 id="iqr"  style="float:right;display:inline;"> {{IQR}}</h3><br>
+                    <br>
+                </div>
+
+            </td>
+         </tr>
+
+      </table>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>
